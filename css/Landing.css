@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    height: 100vh;
+    background-image: url('./rayo.png');
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+a:hover{
+    color: lightyellow;
+}
+
+/* Header */
+header{
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .links{
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle_btn{
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.action_btn{
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: scale 0.3s ease;
+}
+.action_btn:hover{
+    scale: 1.1;
+    color: #fff;
+}
+.action_btn:active{
+    scale: 1;
+}
+/* HERO */
+.main {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100vh; /* Tamaño completo de la ventana */
+    overflow: hidden;
+}
+
+.carousel-container {
+    position: relative;
+    margin: auto;
+    width: 90%; /* Cambiar el ancho máximo del carrusel */
+    max-width: 1200px; /* Limitar el ancho máximo del carrusel */
+    max-height: 80%; /* Limitar la altura del carrusel */
+    overflow: hidden; /* Ocultar desplazamiento horizontal */
+    border-bottom-left-radius: 15px; /* Borde redondeado en la esquina inferior izquierda */
+    border-bottom-right-radius: 15px; /* Borde redondeado en la esquina inferior derecha */
+}
+
+.carousel {
+    display: flex;
+    overflow-x: hidden; /* Ocultar desplazamiento horizontal en el carrusel */
+    overflow-y: hidden; /* Ocultar desplazamiento vertical en el carrusel */
+    scroll-snap-type: x mandatory;
+    border-radius: 15px;
+    position: relative;
+}
+
+.carousel img {
+    scroll-snap-align: start;
+    width: 100%; 
+    height: auto; 
+    border-radius: 15px; 
+    object-fit: cover; 
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    outline: none;
+    padding: 10px;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+    border-radius: 100%;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.carousel-container:hover .prev,
+.carousel-container:hover .next {
+    opacity: 1; 
+}
+
+/* DROPDOWN MENU */
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2.5rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open{
+    height: 180px;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* RESPONSIVE DESIGN*/
+@media(max-width: 992px){
+    .navbar .links,
+    .navbar .action_btn{
+        display: none;
+    }
+
+    .navbar .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+}

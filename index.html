@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="images_portal/insiemp.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script language="JavaScript" type="text/javascript" src="js/com/LoadCss.js"></script>
+    <script src="js_portal/com/Flexivity.js"></script>
+    <script src="js_portal/app/portal/bodyConfig.js"></script>
+    <script src="js_portal/app/portal/noticias.js"></script>
+    <title>DOMUS</title>
+    <link rel="stylesheet" href="./css/Landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+  <body>
+    <!-- <script>
+
+
+
+      flex.init = () => {
+        const {NavBar, Hero, Footer, Slider, Card} = flex;
+
+        const navBar = new NavBar(navBarConfig);
+        const documentContainers = new Document();
+        const footer = new Footer(footerConfig);
+        const hero = new Hero({
+          id: 'hero',
+          idxElement: 0,
+          title: 'GRACIA\nEstudio de Belleza',
+          subTitle: 'Creamos una experiencia embellecedora para ti\n¿Quieres recibir nuestra Gracia?',
+          imgSrc : 'images/logo/bienvenido.jpg'
+        });
+        const slider = new Slider({
+          id: 'slider',
+          idxElement: 0,
+          _built: () => {
+            slider.setDimension('100vw', '88vh');
+            slider.createSlider(sliderConfig);
+          }
+        });
+        const contactsConfig = footerConfig;
+        contactsConfig.id = 'contact'; 
+        const contacts = new Footer(contactsConfig);
+        const closeContacts = new flex.ControlButton({
+          id: 'closecontact',
+          idxElement: 0,
+          backgroundColor1: 'white',
+          cssClass:{
+            position: 'absolute',
+            top: '10px'
+          },
+          typeButton: 'close',
+          hint: 'cerrar'
+        });
+
+        footer._allBuilt = () => {
+				  navBar.setActualSection('inicio');
+          contacts.getPanel().style.backgroundColor = 'rgba(0,0,0,0.8)';
+          closeContacts.setPosition('95%')
+          navBar.getSection('contactos').addEventListener('click',e=>{
+            if(contacts.getPanel().getBoundingClientRect().top === innerHeight - contacts.getPanel().getBoundingClientRect().height){
+              closeContacts.getPanel().click();
+            } else{
+              contacts.getPanel().style.display = 'block';
+              contacts.getPanel().style.top = innerHeight +'px';
+              contacts.getPanel().style.transition = 'top ease-in 0.3s';
+              contacts.getPanel().style.top = innerHeight - contacts.getPanel().getBoundingClientRect().height +'px';
+            }
+          });
+          closeContacts.onClick(()=>{
+            contacts.getPanel().style.top = innerHeight + 'px';
+          });
+          contacts.getPanel().addEventListener('transitionend',e=>{
+            if(contacts.getPanel().getBoundingClientRect().top == innerHeight - contacts.getPanel().getBoundingClientRect().height) console.log(e);
+          });
+          contacts.getPanel().style.position = 'fixed';
+          contacts.getPanel().appendChild(closeContacts.getPanel());          
+          navBar.addToBody();          
+          slider.addToBody();                    
+          hero.addToBody();
+          footer.addToBody();
+          contacts.addToBody();
+        }
+      }
+    </script> -->
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <a href="">Gracia</a>
+        </div>
+        <ul class="links">
+          <li><a href="">Inicio</a></li>
+          <li><a href="">Servicios</a></li>
+          <li><a href="">Contacto</a></li>
+        </ul>
+        <a href="login" class="action_btn">DOMUS</a>
+        <div class="toggle_btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+
+      <div class="dropdown_menu">
+        <li><a href="">Inicio</a></li>
+        <li><a href="">Servicios</a></li>
+        <li><a href="">Contacto</a></li>
+        <li><a href="login" class="action_btn">DOMUS</a></li>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="carousel-container">
+        <button class="prev">&#10094;</button>
+        <div class="carousel">
+          <img src="./css/wallhaven-8586my_1920x1080.png" alt="Imagen 1">
+          <img src="./css/wallhaven-dpyo1j_1920x1080.png" alt="Imagen 2">
+          <img src="./css/wallhaven-o5vdd7_1920x1080.png" alt="Imagen 3">
+        </div>
+        <button class="next">&#10095;</button>
+      </div>
+    </main>
+    
+
+    <script>
+      const toggleBtn = document.querySelector('.toggle_btn');
+      const toggleBtnIcon = document.querySelector('.toggle_btn i'); 
+      const dropdownMenu = document.querySelector('.dropdown_menu');
+
+      toggleBtn.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('open');
+        
+        const isOpen = dropdownMenu.classList.contains('open');
+
+        toggleBtnIcon.classList = isOpen
+          ? 'fa-solid fa-times'
+          : 'fa-solid fa-bars';
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.carousel');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  let scrollPos = 0;
+  let intervalId;
+
+  // Función para cambiar automáticamente de imagen
+  function autoSlide() {
+    intervalId = setInterval(() => {
+      scrollPos += carousel.offsetWidth;
+      if (scrollPos > carousel.scrollWidth - carousel.offsetWidth) {
+        scrollPos = 0;
+      }
+      carousel.scrollTo({
+        left: scrollPos,
+        behavior: 'smooth'
+      });
+    }, 2000); // Cambiar imagen cada 3 segundos (3000 milisegundos)
+  }
+
+  // Iniciar la función de cambio automático
+  autoSlide();
+
+  // Detener el cambio automático cuando se pasa el mouse sobre el carrusel
+  carousel.addEventListener('mouseenter', () => {
+    clearInterval(intervalId);
+  });
+
+  // Reanudar el cambio automático cuando se retira el mouse del carrusel
+  carousel.addEventListener('mouseleave', () => {
+    autoSlide();
+  });
+
+  // Event listeners para los botones previos y siguientes
+  prevBtn.addEventListener('click', () => {
+    scrollPos -= carousel.offsetWidth;
+    if (scrollPos < 0) scrollPos = 0;
+    carousel.scrollTo({
+      left: scrollPos,
+      behavior: 'smooth'
+    });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    scrollPos += carousel.offsetWidth;
+    if (scrollPos > carousel.scrollWidth - carousel.offsetWidth) {
+      scrollPos = carousel.scrollWidth - carousel.offsetWidth;
+    }
+    carousel.scrollTo({
+      left: scrollPos,
+      behavior: 'smooth'
+    });
+  });
+});
+
+
+    </script>
+  </body>
+
+</html>

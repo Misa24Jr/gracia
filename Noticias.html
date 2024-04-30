@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="images_portal/insiemp.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js_portal/com/Flexivity.js"></script>
+    <script src="js_portal/app/portal/bodyConfig.js"></script>
+    <script src="js_portal/app/portal/noticias.js"></script>
+    <title>Revista Escolar</title>
+  </head>
+  <body>
+	<script>
+		flex.init = ()=>{
+			const {Hero, NavBar, Card, Footer} = flex;
+		  	let navBar = new NavBar(navBarConfig);
+			let documentContainers = new flex.Document();
+			let footer = new Footer(footerConfig);
+			let elements = [];
+			const hero = new Hero({
+				id: 'hero',
+				fullHeight: false,
+				title: 'Revista Escolar',
+				// subTitle: 'Nuestra institución',
+				imgSrc : 'images_portal/institucion/noticias.jpg'
+			});
+			let contactsConfig = footerConfig;
+			contactsConfig.id = 'contact'; 
+			const contacts = new flex.Footer(contactsConfig);
+			const closeContacts = new flex.ControlButton({
+			id: 'closecontact',
+			idxElement: 0,
+			backgroundColor1: 'white',
+			cssClass:{
+				position: 'absolute',
+				top: '10px'
+			},
+			typeButton: 'close',
+			hint: 'cerrar'
+			});
+			noticias.forEach((noticia, index) => {
+				let card = new flex.Card({
+					id: 'cardNoticia'+index,
+					idxElement: 0,
+					cssClass: {
+						width: '80%',
+						margin: '20px auto'
+					},
+					_built: ()=>{
+						card.addSection(noticia);
+						elements.push(card.getPanel());
+					}
+				});
+			});
+
+			footer._allBuilt = ()=>{
+				closeContacts.setPosition('95%')
+				contacts.getPanel().style.backgroundColor = 'rgba(0,0,0,0.8)';
+				navBar.getSection('contactos').addEventListener('click',e=>{
+					if(contacts.getPanel().getBoundingClientRect().top === innerHeight - contacts.getPanel().getBoundingClientRect().height){
+						closeContacts.getPanel().click();
+					} else{
+						contacts.getPanel().style.display = 'block';
+						contacts.getPanel().style.top = innerHeight +'px';
+						contacts.getPanel().style.transition = 'top ease-in 0.3s';
+						contacts.getPanel().style.top = innerHeight - contacts.getPanel().getBoundingClientRect().height +'px';
+					}
+				});
+				closeContacts.onClick(()=>{
+					contacts.getPanel().style.top = innerHeight + 'px';
+				});
+				contacts.getPanel().addEventListener('transitionend',e=>{
+					if(contacts.getPanel().getBoundingClientRect().top == innerHeight - contacts.getPanel().getBoundingClientRect().height) console.log(e);
+				})
+				contacts.getPanel().style.position = 'fixed';
+          		contacts.getPanel().appendChild(closeContacts.getPanel());
+				
+				navBar.addToBody();
+				hero.addToBody();
+				navBar.setActualSection('noticias');
+
+				documentContainers.createLayout({
+					type: 'simpleColumn', //contenedor div sencillo para el navbar y el contenedor de cards
+					id: 'mainContainers',
+					addToBody: true,
+					elements
+				});
+				footer.addToBody();
+				contacts.addToBody();
+			}
+		}
+	</script>
+  </body>
+</html>
