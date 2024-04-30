@@ -9,7 +9,7 @@ body{
     background-image: url('./rayo.png');
     background-size: cover;
     background-position: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 li{
     list-style: none;
@@ -78,27 +78,28 @@ header{
 /* HERO */
 .main {
     display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    height: 100vh; /* Tamaño completo de la ventana */
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
     overflow: hidden;
 }
 
 .carousel-container {
     position: relative;
     margin: auto;
-    width: 90%; /* Cambiar el ancho máximo del carrusel */
-    max-width: 1200px; /* Limitar el ancho máximo del carrusel */
-    max-height: 80%; /* Limitar la altura del carrusel */
-    overflow: hidden; /* Ocultar desplazamiento horizontal */
-    border-bottom-left-radius: 15px; /* Borde redondeado en la esquina inferior izquierda */
-    border-bottom-right-radius: 15px; /* Borde redondeado en la esquina inferior derecha */
+    width: 90%; 
+    max-width: 1200px; 
+    max-height: 80%; 
+    overflow: hidden; 
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px; 
+    margin-bottom: 300px;
 }
 
 .carousel {
     display: flex;
-    overflow-x: hidden; /* Ocultar desplazamiento horizontal en el carrusel */
-    overflow-y: hidden; /* Ocultar desplazamiento vertical en el carrusel */
+    overflow-x: hidden;
+    overflow-y: hidden; 
     scroll-snap-type: x mandatory;
     border-radius: 15px;
     position: relative;
@@ -174,6 +175,50 @@ header{
     display: flex;
     justify-content: center;
 }
+
+/* FOOTER */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 90%;
+    bottom: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+
+.btn-footer{
+    border: none;
+    outline: none;
+  }
+
+  .img{
+    width: 80px;
+    height: 55px;
+  }
+
+  .img-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      font-size: 14px;
+    }
+  }
+  
 
 /* RESPONSIVE DESIGN*/
 @media(max-width: 992px){
