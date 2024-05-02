@@ -27,7 +27,7 @@ a{
     font-size: 1rem;
 }
 a:hover{
-    color: lightyellow;
+    color: violet;
 }
 
 /* Header */
@@ -63,8 +63,12 @@ header{
     display: none;
 }
 
+.toggle_btn:hover{
+    color: violet;
+}
+
 .action_btn{
-    background-color: orange;
+    background-color: rgb(163, 75, 163);
     color: #fff;
     padding: 0.5rem 1rem;
     border: none;
@@ -94,8 +98,8 @@ header{
 .carousel-container {
     position: relative;
     margin: auto;
-    width: 100%; 
-    max-height: 80%; 
+    width: 90%; 
+    max-height: 70%; 
     overflow: hidden; 
     margin-bottom: 300px;
 }
@@ -106,13 +110,14 @@ header{
     overflow-y: hidden; 
     scroll-snap-type: x mandatory;
     position: relative;
+    border-radius: 15px;
 }
 
 .carousel img {
     scroll-snap-align: start;
     width: 100%; 
-    height: auto; 
-    /* border-radius: 15px;  */
+    height: 10; 
+    border-radius: 15px;
     object-fit: cover; 
 }
 
@@ -121,17 +126,20 @@ header{
     cursor: pointer;
     position: absolute;
     top: 50%;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     transform: translateY(-50%);
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
     outline: none;
     padding: 10px;
-    opacity: 0; 
+    opacity: 0.8; 
     transition: opacity 0.3s ease; 
     border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .prev {
@@ -151,9 +159,8 @@ header{
 .dropdown_menu{
     display: none;
     position: absolute;
-    right: 2.5rem;
-    top: 60px;
-    height: 0;
+    right: 2rem;
+    top: 70px;
     width: 300px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
@@ -181,7 +188,7 @@ header{
 
 /* FOOTER */
 .footer {
-    background-color: #333;
+    background-color: rgb(202, 57, 255);
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -231,17 +238,57 @@ header{
     }
 
     .navbar .toggle_btn{
-        display: block;
+        display: block; 
     }
 
     .dropdown_menu{
-        display: block;
+        display: block; 
     }
 }
 
 @media(max-width: 576px){
     .dropdown_menu{
-        left: 2rem;
-        width: unset;
+        width: 80%;
+        display: block;
+        height: auto;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+
+    .navbar .toggle_btn{
+        display: none;
     }
 }
+
+
+
+/* Definir animaciones para diferentes direcciones */
+@keyframes slideFromBottom {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  
+  @keyframes slideFromRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+  
+  /* Aplicar la animación a las imágenes */
+  .carousel img {
+    animation: slideFromBottom 1s ease;
+  }
+  
+  /* Agregar clases para diferentes direcciones */
+  .next-from-bottom img {
+    animation-name: slideFromBottom;
+  }
+  
+  .next-from-right img {
+    animation-name: slideFromRight;
+  }
+
