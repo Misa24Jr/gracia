@@ -6,8 +6,15 @@
 }
 body{
     height: 100vh;
-    overflow: hidden;
-    background-color: black;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer{
+    flex-shrink: 0;
 }
 .logo-img{
     width: 70px;
@@ -25,9 +32,10 @@ a{
     text-decoration: none;
     color: #fff;
     font-size: 1rem;
+    font-weight: bold;
 }
 a:hover{
-    color: violet;
+    color: #6869ac;
 }
 
 /* Header */
@@ -64,11 +72,11 @@ header{
 }
 
 .toggle_btn:hover{
-    color: violet;
+    color: #6869ac;
 }
 
 .action_btn{
-    background-color: rgb(163, 75, 163);
+    background-color: #6869ac;
     color: #fff;
     padding: 0.5rem 1rem;
     border: none;
@@ -88,20 +96,26 @@ header{
 }
 /* HERO */
 .main {
-    display: flex;
+    /* display: flex;
     justify-content: center; 
     align-items: center; 
     height: 100vh; 
-    overflow: hidden;
+    ; */
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
 }
 
 .carousel-container {
     position: relative;
     margin: auto;
-    width: 90%; 
-    max-height: 70%; 
+    width: 80%; 
+    max-height: 80%; 
     overflow: hidden; 
     margin-bottom: 300px;
+    border-radius: 15px;
 }
 
 .carousel {
@@ -116,7 +130,7 @@ header{
 .carousel img {
     scroll-snap-align: start;
     width: 100%; 
-    height: 10; 
+    height: 100%;
     border-radius: 15px;
     object-fit: cover; 
 }
@@ -126,20 +140,20 @@ header{
     cursor: pointer;
     position: absolute;
     top: 50%;
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 33px;
     transform: translateY(-50%);
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     border: none;
     outline: none;
     padding: 10px;
-    opacity: 0.8; 
     transition: opacity 0.3s ease; 
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
 }
 
 .prev {
@@ -152,7 +166,7 @@ header{
 
 .carousel-container:hover .prev,
 .carousel-container:hover .next {
-    opacity: 1; 
+    opacity: 0.3; 
 }
 
 /* DROPDOWN MENU */
@@ -170,7 +184,7 @@ header{
 }
 
 .dropdown_menu.open{
-    height: 180px;
+    height: 200px;
 }
 
 .dropdown_menu li{
@@ -186,9 +200,13 @@ header{
     justify-content: center;
 }
 
+.nav{
+    color: #6869ac;
+}
+
 /* FOOTER */
 .footer {
-    background-color: rgb(202, 57, 255);
+    background-color: #6869ac;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -204,11 +222,6 @@ header{
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-  }
-
-.btn-footer{
-    border: none;
-    outline: none;
   }
 
   .img{
@@ -243,6 +256,7 @@ header{
 
     .dropdown_menu{
         display: block; 
+        height: auto;
     }
 }
 
@@ -292,3 +306,17 @@ header{
     animation-name: slideFromRight;
   }
 
+  /* Media query para dispositivos con ancho máximo de 576px */
+@media (max-width: 576px) {
+
+    .footer-content {
+        flex-direction: column; /* Mostrar los elementos del footer en columna */
+        align-items: center; /* Centrar horizontalmente los elementos */
+        justify-content: center;
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+
+  
