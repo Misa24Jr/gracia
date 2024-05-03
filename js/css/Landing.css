@@ -68,7 +68,7 @@ body {
 }
 
 .header {
-  background-image: url("../images_portal/landing/assets/header.jpg");
+  background-image: url("../../images_portal/landing/assets/header.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
