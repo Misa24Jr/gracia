@@ -124,12 +124,6 @@ nav {
   font-weight: 500;
   color: var(--white);
 }
-
-/* .btnDomus{
-  background-color: var(--secondary-color);
-  border-radius: 15px;
-  padding: 5px;
-} */
 .btnDomus {
   padding: 5px;
   border: none;
@@ -223,6 +217,10 @@ nav {
 
 .header__content a:hover {
   color: var(--secondary-color);
+}
+
+.header__image{
+  background-color: red;
 }
 
 .header__image img {
