@@ -14,7 +14,7 @@
   <body>
     <header class="header" id="home">
       <nav>
-        <div class="nav__logo"><a href="">Gracia</a></div>
+        <div class="nav__logo"><a href="login">Gracia</a></div>
         <ul class="nav__links">
           <li class="link"><a href="#services">Servicio</a></li>
           <li class="link"><a href="#projects">Carta</a></li>
@@ -29,36 +29,58 @@
           <a href="">Gracia@gmail.com</a>
         </div>
         <div class="header__image">
-          <img src="./images_portal/landing/assets/index.png" alt="header profile" />
+          <img
+            id="carouselImage"
+            class="fadeInDown"
+            src="./images_portal/landing/assets/index-4.jpg"
+            alt="header profile"
+          />
         </div>
       </div>
     </header>
 
     <section class="section__container services__container" id="services">
       <p class="section__subheader">QUÉ HACEMOS</p>
-      <h2 class="section__header">Impresionantes<br />Servicios de atencion al cliente</h2>
+      <h2 class="section__header">
+        Impresionantes<br />Servicios de atencion al cliente
+      </h2>
       <div class="services__grid">
         <div class="services__card">
-          <img src="./images_portal/landing/assets/service-1.png" alt="service" />
+          <img
+            src="./images_portal/landing/assets/service-1.png"
+            alt="service"
+          />
           <h4>Cortes de Pelo</h4>
           <p>
-            El servicio más básico y esencial que ofrece una peluquería es el corte de pelo. Las peluqueras se encargan de adaptar el corte a las necesidades y estilo personal del cliente.
+            El servicio más básico y esencial que ofrece una peluquería es el
+            corte de pelo. Las peluqueras se encargan de adaptar el corte a las
+            necesidades y estilo personal del cliente.
           </p>
           <a href="#"><i class="ri-arrow-right-line"></i></a>
         </div>
         <div class="services__card">
-          <img src="./images_portal/landing/assets/service-2.png" alt="service" />
+          <img
+            src="./images_portal/landing/assets/service-2.png"
+            alt="service"
+          />
           <h4>Tintes y Coloración</h4>
           <p>
-            Además de los cortes de pelo, las peluquerías ofrecen servicios de tintes y coloración para aquellos que deseen cambiar o realzar el color de su cabello.
+            Además de los cortes de pelo, las peluquerías ofrecen servicios de
+            tintes y coloración para aquellos que deseen cambiar o realzar el
+            color de su cabello.
           </p>
           <a href="#"><i class="ri-arrow-right-line"></i></a>
         </div>
         <div class="services__card">
-          <img src="./images_portal/landing/assets/service-3.png" alt="service" />
+          <img
+            src="./images_portal/landing/assets/service-3.png"
+            alt="service"
+          />
           <h4>Tratamientos Capilares</h4>
           <p>
-            Las peluquerías también ofrecen tratamientos capilares para mantener el cabello saludable, con un aspecto estupendo y adaptándose a las necesidades individuales de cada cliente.
+            Las peluquerías también ofrecen tratamientos capilares para mantener
+            el cabello saludable, con un aspecto estupendo y adaptándose a las
+            necesidades individuales de cada cliente.
           </p>
           <a href="#"><i class="ri-arrow-right-line"></i></a>
         </div>
@@ -71,40 +93,54 @@
 
       <div class="projects__grid">
         <div class="projects__card">
-          <img src="./images_portal/landing/assets/project-1.jpg" alt="project" />
+          <img
+            src="./images_portal/landing/assets/project-1.jpg"
+            alt="project"
+          />
           <h4>Secado</h4>
           <p>Corte de puntas</p>
         </div>
 
         <div class="projects__card">
-          <img src="./images_portal/landing/assets/project-2.jpg" alt="project" />
+          <img
+            src="./images_portal/landing/assets/project-2.jpg"
+            alt="project"
+          />
           <h4>Teñido</h4>
           <p>Tinte rojo fuego</p>
         </div>
 
         <div class="projects__card">
-          <img src="./images_portal/landing/assets/project-3.jpg" alt="project" />
+          <img
+            src="./images_portal/landing/assets/project-3.jpg"
+            alt="project"
+          />
           <h4>Teñido</h4>
           <p>Balayage color purpura</p>
         </div>
 
         <div class="projects__card">
-          <img src="./images_portal/landing/assets/project-4.jpg" alt="project" />
+          <img
+            src="./images_portal/landing/assets/project-4.jpg"
+            alt="project"
+          />
           <h4>Teñido</h4>
           <p>Balayage color miel</p>
         </div>
-        
       </div>
     </section>
 
     <section class="banner">
       <div class="section__container banner__container">
-        <h2 class="section__header">
-          ¿Quienes Somos?
-        </h2>
+        <h2 class="section__header">¿Quienes Somos?</h2>
         <div class="banner__content">
           <p>
-            "Un salón de peluquería de alta calidad se distingue por ofrecer servicios de excelencia y estar a la vanguardia de las últimas tendencias en cortes, coloración y estilos. Estos establecimientos se caracterizan por proporcionar un ambiente acogedor, productos de calidad y un trato personalizado que atiende las necesidades y peticiones de la clientela."
+            "Un salón de peluquería de alta calidad se distingue por ofrecer
+            servicios de excelencia y estar a la vanguardia de las últimas
+            tendencias en cortes, coloración y estilos. Estos establecimientos
+            se caracterizan por proporcionar un ambiente acogedor, productos de
+            calidad y un trato personalizado que atiende las necesidades y
+            peticiones de la clientela."
           </p>
           <h4>Maracaibo</h4>
           <h5>Venezuela</h5>
@@ -134,5 +170,31 @@
       </div>
     </footer>
     <script src="./js/com/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const images = [
+          "./images_portal/landing/assets/index-4.jpg",
+          "./images_portal/landing/assets/index-1.png",
+          "./images_portal/landing/assets/index-2.png",
+          "./images_portal/landing/assets/index-3.png",
+          "./images_portal/landing/assets/index-5.png",
+          "./images_portal/landing/assets/index-6.png",
+        ];
+        const intervalTime = 5000;
+
+        let index = 0;
+        const imageElement = document.getElementById("carouselImage");
+
+        function changeImage() {
+          index = (index + 1) % images.length;
+          imageElement.src = images[index];
+          imageElement.classList.remove("fadeInDown");
+          void imageElement.offsetWidth;
+          imageElement.classList.add("fadeInDown");
+        }
+
+        setInterval(changeImage, intervalTime);
+      });
+    </script>
   </body>
 </html>

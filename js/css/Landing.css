@@ -219,13 +219,38 @@ nav {
   color: var(--secondary-color);
 }
 
-.header__image{
-  background-color: red;
+.header__image {
+  overflow: hidden;
+  width: 100%;
+  height: 650px;
+  position: relative; 
 }
 
 .header__image img {
-  max-width: 550px;
-  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  mask-image: linear-gradient(var(--secondary-color) 80%, transparent);
+}
+
+.fadeInDown {
+  animation: fadeInDown 1s ease forwards; 
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .services__grid {
