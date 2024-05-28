@@ -14,7 +14,7 @@
   <body>
     <header class="header" id="home">
       <nav>
-        <div class="nav__logo"><a href="login">Gracia</a></div>
+        <div class="nav__logo"><a>Gracia</a></div>
         <div class="menu-toggle">
           <i class="ri-menu-line"></i>
         </div>
@@ -27,15 +27,16 @@
       </nav>
       <div class="section__container header__container">
         <div class="header__content">
-          <h1>Tu estilo, nuestra pasión</h1>
-          <button class="btn">SIGUENOS!</button>
-          <a href="">Gracia@gmail.com</a>
+          <h1>Creamos una experiencia embellecedora para ti</h1>
+          <h1 class="subTitle">¿Quieres recibir nuestra Gracia?</h1>
+          <button class="btn" >SIGUENOS!</button>
+          <a href="https://www.instagram.com/graciaestudiob/">graciaestudiob</a>
         </div>
         <div class="header__image">
           <img
             id="carouselImage"
             class="fadeInDown"
-            src="./images/slider/img-1.jpg"
+            src="./images/slider/imagen_1.jpg"
             alt="header profile"
           />
         </div>
@@ -53,7 +54,7 @@
             src="./images_portal/landing/assets/service-1.png"
             alt="service"
           />
-          <h4>Cortes de Pelo</h4>
+          <h4>Cortes de Cabello</h4>
           <p>
             El servicio más básico y esencial que ofrece una peluquería es el
             corte de pelo. Las peluqueras se encargan de adaptar el corte a las
@@ -81,7 +82,7 @@
           />
           <h4>Tratamientos Capilares</h4>
           <p>
-            Las peluquerías también ofrecen tratamientos capilares para mantener
+            Los Estudios de belleza también ofrecen tratamientos capilares para mantener
             el cabello saludable, con un aspecto estupendo y adaptándose a las
             necesidades individuales de cada cliente.
           </p>
@@ -92,7 +93,7 @@
 
     <section class="projects__container" id="projects">
       <p class="section__subheader">CARTA</p>
-      <h2 class="section__header">Lista de trabajos</h2>
+      <h2 class="section__header">Te Ofrecemos</h2>
 
       <div class="projects__grid">
         <div class="projects__card">
@@ -138,12 +139,12 @@
         <h2 class="section__header">¿Quienes Somos?</h2>
         <div class="banner__content">
           <p>
-            "Un salón de peluquería de alta calidad se distingue por ofrecer
+            "Estudio de belleza de alta calidad se distingue por ofrecer
             servicios de excelencia y estar a la vanguardia de las últimas
-            tendencias en cortes, coloración y estilos. Estos establecimientos
-            se caracterizan por proporcionar un ambiente acogedor, productos de
-            calidad y un trato personalizado que atiende las necesidades y
-            peticiones de la clientela."
+            tendencias en cortes, coloración y estilos. Nuestro establecimiento
+            se caracteriza por proporcionar un ambiente agradable, productos de
+            calidad y un trato personalizado para antender las necesidades y
+            peticiones de nuestra clientela."
           </p>
           <h4>Maracaibo</h4>
           <h5>Venezuela</h5>
@@ -155,20 +156,18 @@
       <div class="section__container footer__container">
         <div class="footer__col">
           <h2>Gracia</h2>
-          <p>Gracia@gmail.com</p>
-          <p>+91 9876543210</p>
+          <p>graciastudioadmon@gmail.com</p>
+          <p>+58 00000000</p>
         </div>
         <div class="footer__col">
           <div class="footer__socials">
             <a href="#"><i class="ri-facebook-fill"></i></a>
-            <a href="#"><i class="ri-twitter-fill"></i></a>
-            <a href="#"><i class="ri-linkedin-fill"></i></a>
-            <a href="#"><i class="ri-instagram-fill"></i></a>
+            <a href="https://www.instagram.com/graciaestudiob/"><i class="ri-instagram-fill"></i></a>
           </div>
         </div>
         <div class="footer__col">
-          <h4>Direccion</h4>
-          <p>Cumbres de maracaibo</p>
+          <h4>Dirección</h4>
+          <p>La Rotaria</p>
         </div>
       </div>
     </footer>
@@ -176,18 +175,18 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const images = [
-          "./images/slider/img-1.jpg",
-          "./images/slider/img-2.jpg",
-          "./images/slider/img-3.jpg",
-          "./images/slider/img-4.jpg",
-          "./images/slider/img-5.jpg",
-          "./images/slider/img-6.jpg",
-          "./images/slider/img-7.jpg",
-          "./images/slider/img-8.jpg",
-          "./images/slider/img-9.jpg",
-          "./images/slider/img-10.jpg",
-          "./images/slider/img-11.jpg",
-          "./images/slider/img-12.jpg"
+          "./images/slider/imagen_1.jpg",
+          "./images/slider/imagen_2.jpg",
+          "./images/slider/imagen_3.jpg",
+          "./images/slider/imagen_4.jpg",
+          "./images/slider/imagen_5.jpg",
+          "./images/slider/imagen_6.jpg",
+          "./images/slider/imagen_7.jpg",
+          "./images/slider/imagen_8.jpg",
+          "./images/slider/imagen_9.jpg",
+          "./images/slider/imagen_10.jpg",
+          "./images/slider/imagen_11.jpg",
+          "./images/slider/imagen_12.jpg"
         ];
         const intervalTime = 5000;
 
@@ -214,11 +213,18 @@
         menuToggle.querySelector('i').classList.toggle('ri-menu-line');
         menuToggle.querySelector('i').classList.toggle('ri-close-line');
       });
+
+      // Select all links within the navigation
+      const navLinkItems = document.querySelectorAll('.nav__links a');
+
+      navLinkItems.forEach(link => {
+        link.addEventListener('click', function () {
+          navLinks.classList.remove('active');
+          menuToggle.querySelector('i').classList.remove('ri-close-line');
+          menuToggle.querySelector('i').classList.add('ri-menu-line');
+        });
+      });
     });
     </script>
-
-<script>
-
-</script>
   </body>
 </html>
